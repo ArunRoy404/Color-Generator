@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+
+    <!-- daisyUI  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+</head>
+
+<body class="bg-[#DDDEEE] h-[100vh] flex justify-center items-center">
+    <main>
+
+        <!-- container  -->
+        <div class="bg-white w-[700px] p-8 space-y-8">
+            <!-- header  -->
+            <div class="flex justify-between items-center border-b-2 border-blue-200 pb-2">
+                <h1 class="font-bold text-xl">Display Color</h1>
+                <h2 class="font-bold text-orange-500">Random Color</h2>
+            </div>
+
+            <!-- color display  -->
+            <div class="w-full h-[150px] bg-red-50">
+            </div>
+
+            <!-- change and copy section  -->
+            <div class="flex justify-between items-center pb-2 border-b-2 border-blue-200">
+                <h1 class="font-bold text-xl">Change & Copy Color</h1>
+                <h2 class="font-bold text-orange-500">Copy to Clipboard</h2>
+            </div>
+
+
+            <div class="space-y-3">
+                <div class="flex justify-between">
+
+                    <!-- copy mode selection  -->
+                    <h2 class="font-bold">Select Copy Mode</h2>
+                    <div class="flex gap-6">
+                        <!-- hex radio  -->
+                        <div class="flex gap-1">
+                            <input type="radio" name="radio-1" class="radio" checked="checked" />
+                            <h2 class="font-bold">Hex</h2>
+                        </div>
+                        <!-- rgb radio  -->
+                        <div class="flex gap-1">
+                            <input type="radio" name="radio-1" class="radio" />
+                            <h2 class="font-bold">RGB</h2>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- input color code  -->
+                <div class="flex gap-5 justify-between">
+                    <!-- hex input  -->
+                    <div class="flex-1">
+                        <h3 class="font-bold">Hex</h3>
+                        <div class="flex border-1 border-gray-400">
+                            <div class="w-13 bg-gray-300 flex justify-center items-center text-xl font-bold">
+                                #
+                            </div>
+                            <input class="w-full h-10 border-none" type="text" name="" id="">
+                        </div>
+                    </div>
+                    <!-- rgb input  -->
+                    <div class="flex-1">
+                        <h3 class="font-bold">RGB</h3>
+                        <input class="w-full h-10 border-gray-400" type="text" name="" id="">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- slider container  -->
+            <div class="space-y-3">
+                <h1 class="font-bold">Adjust RGB Colors</h1>
+                <div class="flex justify-between gap-3">
+                    <!-- red  -->
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center font-semibold">
+                            <h4>Red</h4>
+                            <h4>0</h4>
+                        </div>
+                        <input type="range" min="0" max="100" value="40" class="range range-error" />
+                    </div>
+                    <!-- green  -->
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center font-semibold">
+                            <h4>Red</h4>
+                            <h4>0</h4>
+                        </div>
+                        <input type="range" min="0" max="100" value="40" class="range range-success" />
+                    </div>
+                    <!-- blue  -->
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center font-semibold">
+                            <h4>Red</h4>
+                            <h4>0</h4>
+                        </div>
+                        <input type="range" min="0" max="100" value="40" class="range range-info" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
