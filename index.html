@@ -10,7 +10,16 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-
+    <style>
+        .copied{
+            animation: copied 0.5s 1.5s linear;
+        }
+        @keyframes copied {
+            100%{
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-[#DDDEEE] h-[100vh] flex justify-center items-center">
@@ -21,19 +30,19 @@
             <!-- header  -->
             <div class="flex justify-between items-center border-b-2 border-blue-200 pb-2">
                 <h1 class="font-bold text-xl">Display Color</h1>
-                <h2 class="font-bold text-orange-500">Random Color</h2>
+                <h2 onclick="randomColor()" class="cursor-pointer select-none font-bold text-orange-500">Random Color</h2>
             </div>
 
             <!-- color display  -->
-            <div class="w-full h-[150px] bg-red-50">
+            <div id="display" class="w-full h-[150px] bg-red-50">
             </div>
 
             <!-- change and copy section  -->
-            <div class="flex justify-between items-center pb-2 border-b-2 border-blue-200">
+            <div class="relative flex justify-between items-center pb-2 border-b-2 border-blue-200">
                 <h1 class="font-bold text-xl">Change & Copy Color</h1>
-                <h2 class="font-bold text-orange-500">Copy to Clipboard</h2>
+                <h2 onclick="copy()" class="cursor-pointer select-none font-bold text-orange-500">Copy to Clipboard</h2>
+                <h3 id="copied-text" class="absolute -top-5 right-0 bg-gray-300 font-bold px-2 rounded-md copied hidden" >Copied</h3>
             </div>
-
 
             <div class="space-y-3">
                 <div class="flex justify-between">
@@ -48,15 +57,14 @@
                         </div>
                         <!-- rgb radio  -->
                         <div class="flex gap-1">
-                            <input type="radio" name="radio-1" class="radio" />
+                            <input type="radio" name="radio-1" class="radio" id="radio-rgb" />
                             <h2 class="font-bold">RGB</h2>
                         </div>
                     </div>
                 </div>
 
-
                 <!-- input color code  -->
-                <div class="flex gap-5 justify-between">
+                <div class="flex gap-5 justify-between items-center">
                     <!-- hex input  -->
                     <div class="flex-1">
                         <h3 class="font-bold">Hex</h3>
@@ -64,17 +72,16 @@
                             <div class="w-13 bg-gray-300 flex justify-center items-center text-xl font-bold">
                                 #
                             </div>
-                            <input class="w-full h-10 border-none" type="text" name="" id="">
+                            <input disabled class="w-full h-10 border-none font-medium px-5" type="text" name="" id="hex-input">
                         </div>
                     </div>
                     <!-- rgb input  -->
                     <div class="flex-1">
                         <h3 class="font-bold">RGB</h3>
-                        <input class="w-full h-10 border-gray-400" type="text" name="" id="">
+                        <input disabled class="w-full h-10 border-gray-400 font-medium px-5" type="text" name="" id="rgb-input">
                     </div>
                 </div>
             </div>
-
 
             <!-- slider container  -->
             <div class="space-y-3">
@@ -84,25 +91,25 @@
                     <div class="flex-1">
                         <div class="flex justify-between items-center font-semibold">
                             <h4>Red</h4>
-                            <h4>0</h4>
+                            <h4 id="red-number">0</h4>
                         </div>
-                        <input type="range" min="0" max="100" value="40" class="range range-error" />
+                        <input id="slider-r" oninput="handleSliderValue()" type="range" min="0" max="255" class="range range-error" />
                     </div>
                     <!-- green  -->
                     <div class="flex-1">
                         <div class="flex justify-between items-center font-semibold">
-                            <h4>Red</h4>
-                            <h4>0</h4>
+                            <h4>green</h4>
+                            <h4 id="green-number">0</h4>
                         </div>
-                        <input type="range" min="0" max="100" value="40" class="range range-success" />
+                        <input id="slider-g" oninput="handleSliderValue()" type="range" min="0" max="255" class="range range-success" />
                     </div>
                     <!-- blue  -->
                     <div class="flex-1">
                         <div class="flex justify-between items-center font-semibold">
-                            <h4>Red</h4>
-                            <h4>0</h4>
+                            <h4>Blue</h4>
+                            <h4 id="blue-number">0</h4>
                         </div>
-                        <input type="range" min="0" max="100" value="40" class="range range-info" />
+                        <input id="slider-b" oninput="handleSliderValue()" type="range" min="0" max="255" class="range range-info" />
                     </div>
                 </div>
             </div>
